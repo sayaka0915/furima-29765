@@ -3,7 +3,7 @@
 ## users テーブル
 
 | Column           | Type    | Options      |
-| --------         | ------  | ---------    |
+| -------------    | ------  | ---------    |
 | nickname         | string  | null: false  |
 | email            | string  | null: false  |
 | password         | string  | null: false  |
@@ -11,9 +11,8 @@
 | first_name       | string  | null: false  |
 | last_name_kana   | string  | null: false  |
 | first_name_kana  | string  | null: false  |
-| birth_year       | integer | null: false  |
-| birth_month      | integer | null: false  |
-| birth_day        | integer | null: false  |
+| birthday         | date    | null: false  |
+
 
 ### Association
 
@@ -23,17 +22,17 @@
 
 ## items テーブル
 
-| Column             | Type       | Options                        |
-| --------------     | ------     | ---------                      |
-| name               | string     | null: false                    |
-| introduction       | text       | null: false                    |
-| price              | integer    | null: false                    |
-| category_id        | integer    | null: false                    |
-| condition_id       | integer    | null: false                    |
-| pay_shipping_id    | integer    | null: false                    |
-| delivery_source_id | integer    | null: false                    |
-| preparation_day_id | integer    | null: false                    |
-| user               | integer    | null: false, foreign_key :true |
+| Column             | Type         | Options                        |
+| --------------     | ------       | ---------                      |
+| name               | string       | null: false                    |
+| introduction       | text         | null: false                    |
+| price              | integer      | null: false                    |
+| category_id        | integer      | null: false                    |
+| condition_id       | integer      | null: false                    |
+| pay_shipping_id    | integer      | null: false                    |
+| delivery_source_id | integer      | null: false                    |
+| preparation_day_id | integer      | null: false                    |
+| user               | references   | null: false, foreign_key :true |
 
 ### Association
 
@@ -48,16 +47,16 @@
 
 ## purchases テーブル
 
-| Column           | Type         | Options            |
-| ---------------- | ---------    | ---------          |
-| user             | references   | foreign_key :true  |
-| item             | references   | foreign_key :true  |
+| Column           | Type         | Options                         |
+| ---------------- | ---------    | ---------                       |
+| user             | references   | null: false, foreign_key :true  |
+| item             | references   | null: false, foreign_key :true  |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 ## addresses テーブル
 
@@ -72,5 +71,5 @@
 
 ### Association
 
-- has_many :purchases
+- belongs_to :purchase
 - belongs_to_active_hash :prefecture
