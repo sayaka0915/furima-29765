@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
-  before_action :configure_permitted_parametes
+  before_action :configure_permitted_parametes, if: :devise_controller?
 
   private
   def basic_auth
