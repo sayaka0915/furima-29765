@@ -26,7 +26,7 @@
 | --------------     | ------       | ---------                      |
 | name               | string       | null: false                    |
 | introduction       | text         | null: false                    |
-| price              | integer      | null: false                    |
+| price              | string       | null: false                    |
 | category_id        | integer      | null: false                    |
 | condition_id       | integer      | null: false                    |
 | pay_shipping_id    | integer      | null: false                    |
