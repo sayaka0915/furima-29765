@@ -10,18 +10,18 @@ class Item < ApplicationRecord
 
   price_regex = /\A[0-9]+\z/
   with_options presence: true do
-    validates :image
-    validates :name
-    validates :introduction
-    validates :price, format: { with: price_regex, message: 'Half-width number' }
-  end
+      validates :image
+      validates :name
+      validates :introduction
+      validates :price, format: { with: price_regex, message: 'Half-width number' }
 
-  with_options presence: true, numericality: { other_than: 1, message: 'Select' } do
-    validates :category_id
-    validates :condition_id
-    validates :pay_shipping_id
-    validates :delivery_source_id
-    validates :preparation_day_id
+    with_options numericality: { other_than: 1, message: 'Select' } do
+      validates :category_id
+      validates :condition_id
+      validates :pay_shipping_id
+      validates :delivery_source_id
+      validates :preparation_day_id
+    end
   end
 
   validates :price, numericality: {
