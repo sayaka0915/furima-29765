@@ -43,7 +43,7 @@
 - belongs_to_active_hash :preparation_day
 - belongs_to :user
 - has_one :purchase
-
+- has_one_attached :image
 
 ## purchases テーブル
 
