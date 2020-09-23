@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
 
   def index
-    @items = Item.with_attached_image
+    @items = Item.includes(:image_attachment)
   end
 
   def new
