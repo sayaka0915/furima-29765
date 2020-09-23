@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
 
   def index
-    @items = Item.includes(:image_attachment)
+    @items = Item.includes(:image_attachment).order('created_at DESC')
   end
 
   def new
