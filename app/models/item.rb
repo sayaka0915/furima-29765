@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation_day
   has_one_attached :image
   belongs_to :user
+  has_one :purchase
 
   price_regex = /\A[0-9]+\z/
   with_options presence: true do
