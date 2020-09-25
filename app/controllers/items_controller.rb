@@ -35,7 +35,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    check_user
     if @item.update(item_params)
       redirect_to action: :show
     else
