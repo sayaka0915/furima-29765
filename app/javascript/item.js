@@ -10,4 +10,4 @@ function item (){
     profitArea.innerHTML = Math.floor(`${profit}`);
   })
 }
-setInterval(item, 1000);
+window.addEventListener('load', item);
