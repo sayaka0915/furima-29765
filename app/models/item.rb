@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   has_one :purchase
+  has_many :comments
 
   price_regex = /\A[0-9]+\z/
   with_options presence: true do
