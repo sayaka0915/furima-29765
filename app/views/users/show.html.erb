@@ -1,0 +1,13 @@
+  <%= render "shared/header" %>
+
+  <%# 商品一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'><%= @nickname %>さんの出品商品一覧</h2>
+    <ul class='item-lists'>
+      <% @items.each do |item| %>
+        <%= render partial: 'shared/items', locals:{ item: item } %>
+      <% end %>
+    </ul>
+  </div>
+  <%# /商品一覧 %>
+  <%= render "shared/footer" %>
