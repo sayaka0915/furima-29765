@@ -4,8 +4,8 @@ class PurchaseAddress
 
   postal_code_regex = /\A[0-9]{3}-[0-9]{4}\z/
   with_options presence: true do
-    validates :postal_code, format: { with: postal_code_regex, message: 'Input correctly' }
-    validates :delivery_source_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :postal_code, format: { with: postal_code_regex, message: 'は正しい形式で入力してください' }
+    validates :delivery_source_id, numericality: { other_than: 1, message: 'を選択してください' }
     validates :city
     validates :house_number
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
