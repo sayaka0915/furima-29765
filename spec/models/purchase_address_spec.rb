@@ -13,37 +13,37 @@ RSpec.describe PurchaseAddress, type: :model do
     it 'tokenが空では登録できないこと' do
       @purchase_address.token = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+      expect(@purchase_address.errors.full_messages).to include('正確なカード情報を入力してください')
     end
 
     it 'postal_codeが空では登録できないこと' do
       @purchase_address.postal_code = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Postal code can't be blank")
+      expect(@purchase_address.errors.full_messages).to include('郵便番号を入力してください')
     end
 
     it 'postal_codeが半角ハイフンを含んだ正しい形式でないと登録できないこと' do
       @purchase_address.postal_code = '1111111'
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include('Postal code Input correctly')
+      expect(@purchase_address.errors.full_messages).to include('郵便番号は正しい形式で入力してください')
     end
 
     it 'delivery_source_idを選択していないと登録できないこと' do
       @purchase_address.delivery_source_id = 1
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Delivery source can't be blank")
+      expect(@purchase_address.errors.full_messages).to include('都道府県を選択してください')
     end
 
     it 'cityが空では登録できないこと' do
       @purchase_address.city = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("City can't be blank")
+      expect(@purchase_address.errors.full_messages).to include('市区町村を入力してください')
     end
 
     it 'house_numberが空では登録できないこと' do
       @purchase_address.house_number = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("House number can't be blank")
+      expect(@purchase_address.errors.full_messages).to include('番地を入力してください')
     end
 
     it 'building_nameが空でも登録できること' do
@@ -54,13 +54,13 @@ RSpec.describe PurchaseAddress, type: :model do
     it 'phone_numberが空では登録できないこと' do
       @purchase_address.phone_number = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Phone number can't be blank")
+      expect(@purchase_address.errors.full_messages).to include('電話番号を入力してください')
     end
 
     it 'phone_numberが11桁以上では登録できないこと' do
       @purchase_address.phone_number = '090123456789'
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
+      expect(@purchase_address.errors.full_messages).to include('電話番号は不正な値です')
     end
 
     it 'phone_numberが数字10桁であれば登録できること(固定電話、ハイフンなし)' do
