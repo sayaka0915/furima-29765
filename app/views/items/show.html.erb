@@ -20,7 +20,7 @@
         ¥ <%= @item.price %>
       </span>
       <span class="item-postage">
-        (税込) 送料込み
+        <%= @item.pay_shipping.name %>
       </span>
     </div>
     <%#  ユーザーがログインしている且つ出品者である且つ売れていない場合 %>
